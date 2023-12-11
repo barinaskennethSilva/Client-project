@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+  <head>
+ <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload Types of Services</title>
+  </head>
+  <style>
+  *{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+  }
+  .container{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    width: 100%;
+    flex-wrap: wrap;
+    
+  }
+   /*form{
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    form .name input, .descript input, .Price input{
+      flex: 1 0 10rem;
+    }
+    .button{
+      flex: 1 0 5rem;
+      background-color: dodgerblue;
+    }*/
+  </style>
+  <body>
+        <?php include"Header_add.php"?>
+    <div class="container">
+   <div class="text-Top" >
+      <h1>Create New Services Offer</h1>
+      </div>
+<form> 
+<div class="name">
+  <input type="text"placeholder="Name of Services">
+</div>
+<div class="descript">
+  <label for="description">Description of Seevices</label>
+  <input type="text"placeholder="Description"></div>
+<div class="img_service">
+  <input type="file"placeholder="Name of Services"></div>
+<div class="ContNum">
+  <label for="ContNum">Price of Seevices</label>
+<input type="tel"placeholder="Contact Number"></div>
+<div class="Price">
+  <label for="Price">Price of Seevices</label>
+<input type="text"placeholder="Price"></div>
+<div><input type="submit" class="button" value="Submit"></div>
+
+
+</form>
+
+    </div>
+  </body>
+</html>

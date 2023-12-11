@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSON to HTML Display</title>
+</head>
+<body>
+
+<div id="jsonDisplay"></div>
+
+<script>
+// Example JSON data
+var jsonData = {
+    "name": "Kenneth Barinas",
+    "email": "kbarinas0@gmail.com",
+    "age": "24",
+    "gender": "male"
+};
+
+// Function to convert JSON to HTML and display it
+function displayJSON() {
+    var jsonDisplayDiv = document.getElementById("jsonDisplay");
+
+    // Create an unordered list
+    var ul = document.createElement("ul");
+
+    // Iterate over the JSON properties and create list items
+    for (var key in jsonData) {
+        if (jsonData.hasOwnProperty(key)) {
+            var li = document.createElement("li");
+            li.textContent = key + ": " + jsonData[key];
+            ul.appendChild(li);
+        }
+    }
+
+    // Append the list to the display div
+    jsonDisplayDiv.appendChild(ul);
+}
+
+// Call the displayJSON function
+displayJSON();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,111 @@
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+body{
+  
+  
+  
+}
+/*          Login Form Design             */
+.background_form{
+  width: 100%;
+  max-height: 100%;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+}
+#myForm{
+  width: 55%;
+  z-index: 100;
+  margin-top: 60px !important;
+}
+.toggler{
+  
+}
+.linkForm a{
+  text-decoration: none;
+}
+#responseMessage{
+  color: #ff0a4d;
+  margin-bottom: 5px !important;
+}
+/*          Mobile View                   */
+@media only screen and (max-width:460px){
+  body{
+  background-image: url('./image/background_form.png');
+  background-size: 100% 100%;
+}
+/*          Login Form Design             */
+.background_form{
+  width: 100%;
+  max-height: 100%;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  background-color: #fff !important;
+}
+.dash_home{
+  position: absolute;
+  top: 0px;
+  left:0px;
+  height: 100%;
+  width: 0%;
+  background-color: #111;
+  overflow: hidden;
+}
+.Top_dash{
+  border-bottom:1px solid #fff;
+  height: 200px;
+  text-align: center;
+  line-height: 200px;
+}
+ .Top_dash label{
+   font-size: 20px;
+   color: gold;
+   font-family: cursive;
+ }
+ .dash_home  ul li a{
+  text-decoration: none;
+  font-size: 25px;
+  color: #fff;
+ }
+  .dash_home  ul li a:hover{
+    color: gold;
+  }
+   .dash_home  ul li {
+  list-style-type: none;
+  text-align: center;
+  margin-top: 10px;
+   }
+.dash_close{
+  position: absolute;
+  top: 0px;
+  right:0px;
+  height: 100%;
+  width: 0%;
+  background-color:blurred;
+  
+}
+#myForm{
+  width: 95%;
+  z-index: 100;
+  margin-top: 130px !important;
+background-color: #fff;
+}
+
+.toggler{
+  background-color: transparent;
+  outline: none;
+  border: none;
+  color:#fff;
+  font-size: 25px;
+}
+.linkForm a{
+  text-decoration: none;
+}
+.linkForm {
+  
+}
+}

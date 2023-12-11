@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="icon" type="image/png" href="p1.png"> 
+       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <title>Form to JSON</title>
+</head>
+<body>
+<style>
+.agent-User{
+  background-color: #fff;
+  height: 200px;
+  width: 200px;
+  border: 1px solid #111;
+  text-align: center;
+}
+.agent-User i{
+  font-size: 45px;
+}
+</style>
+<form id="userForm">
+  
+  
+ <div class="agent-User shadow" id="agent-User" data-custom="Katherine" >
+   <i class="fa fa-user"></i><br>
+ <input type="radio" value="Katherine" id="agent-therapist" name="agent-therapist">   
+   
+   <label for="agent-therapist"> <label class="name-agent fw-bold">Katherine
+</label>
+  <p>Therapist Specialist</p>
+ </div>  
+  
+      <div class="agent-User shadow" id="agent-User" data-custom="Katherine" >
+   <i class="fa fa-user"></i><br>
+ <input type="radio" value="Maviel" id="agent-therapist" name="agent-therapist">  <label for="agent-therapist"> <label class="name-agent fw-bold">Maviel
+</label>
+  <p>Therapist Specialist</p>
+ </div>  
+  
+  
+  
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" required><br>
+
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" required><br>
+
+    <label for="age">Age:</label>
+    <input type="number" id="age" name="age" required><br>
+
+    <label for="gender">Gender:</label>
+    <select id="gender" name="gender" required>
+        <option value="male">Male</option>
+        <option value="female">Female</option>
+        <option value="other">Other</option>
+    </select><br>
+
+    <button type="button" onclick="generateJSON()">Submit</button>
+</form>
+<div id="results">
+  
+</div>
+<label for="inputTime">Choose a time (24-hour format): </label>
+    <input type="time" id="inputTime" oninput="convertTime()" required>
+
+    <p id="result"></p>
+<script>
+
+function convertTime() {
+const inputTime = document.getElementById("inputTime").value;
+
+            // Split the input time string into hours and minutes
+            const [hours, minutes] = inputTime.split(':');
+
+            // Create a Date object and set the hours and minutes
+            const dateObj = new Date();
+            dateObj.setHours(hours);
+            dateObj.setMinutes(minutes);
+
+            // Format the time in 12-hour format using the Philippines time zone
+            const formattedTime = dateObj.toLocaleTimeString('en-US', { timeZone: 'Asia/Manila', hour: '2-digit', minute: '2-digit' });
+
+            // Display the result
+            document.getElementById("result").innerText = "Converted time: " + formattedTime;
+        
+        }
+
+
+function generateJSON() {
+var jsonDisplayDiv = document.getElementById("results");
+    // Get form values
+var selectedTherapist = document.querySelector('input[name="agent-therapist"]:checked');
+
+    if (!selectedTherapist) {
+        alert("Please choose an agent therapist");
+        return;
+    }
+
+
+var agent_therapist = selectedTherapist.value;
+   
+    var name = document.getElementById("name").value;
+    var email = document.getElementById("email").value;
+    var age = document.getElementById("age").value;
+    var gender = document.getElementById("gender").value;
+
+    // Create JSON object
+    var userObject = {
+        "agent_therapist":agent_therapist,
+        "name": name,
+        "email": email,
+        "age": age,
+        "gender": gender
+    };
+var ulContent = "<ul>";
+for (var key in userObject) {
+        if (userObject.hasOwnProperty(key)) {
+            var li = document.createElement("li");
+            ulContent += "<li>" + key + ": " + userObject[key] + "</li>";
+        }
+        
+    }
+    
+    ulContent += "</ul>";
+
+    jsonDisplayDiv.innerHTML = ulContent;
+}
+
+//displayJSON();
+
+</script>
+
+</body>
+</html>
